@@ -1,125 +1,121 @@
-🤖 SmartDesk AI
+# 🤖 SmartDesk AI
 
-An AI-powered ticket management system that intelligently categorizes, prioritizes, and assigns support tickets to the most suitable moderators.
+An AI-powered ticket management system that intelligently **categorizes, prioritizes, and assigns support tickets** to the most suitable moderators.
 
 Built as part of the ChaiCode YouTube series, this project demonstrates how to integrate AI into real-world support workflows.
 
-🚀 Overview
+---
+
+## 🚀 Overview
 
 SmartDesk AI automates the entire ticket lifecycle using AI and event-driven architecture. It reduces manual effort, improves response time, and ensures tickets reach the right person faster.
 
-✨ Key Features
-🧠 AI-Powered Ticket Processing
-Automatic ticket categorization
-Smart priority assignment
-Skill extraction from ticket content
-AI-generated notes for moderators
+---
 
-👨‍💻 Intelligent Assignment
-Skill-based moderator matching
-Regex-powered routing system
-Fallback to admin if no match found
+## ✨ Key Features
 
-👥 User Management
-Role-based access control (User / Moderator / Admin)
-Moderator skill management
-Secure JWT authentication
+### 🧠 AI-Powered Ticket Processing
+- Automatic ticket categorization  
+- Smart priority assignment  
+- Skill extraction from ticket content  
+- AI-generated notes for moderators  
 
-⚙️ Background Processing
-Event-driven workflows using Inngest
-Asynchronous ticket processing
-Automated email notifications
+### 👨‍💻 Intelligent Assignment
+- Skill-based moderator matching  
+- Regex-powered routing system  
+- Fallback to admin if no match found  
 
-🛠️ Tech Stack
-Layer	Technology
-Backend	Node.js, Express
-Database	MongoDB
-Authentication	JWT
-AI Integration	Google Gemini API
-Background Jobs	Inngest
-Email Service	Nodemailer (Mailtrap)
-Dev Tools	Nodemon
+### 👥 User Management
+- Role-based access control (User / Moderator / Admin)  
+- Moderator skill management  
+- Secure JWT authentication  
 
-📦 Prerequisites
-Node.js (v14 or higher)
-MongoDB
-Google Gemini API key
-Mailtrap account
+### ⚙️ Background Processing
+- Event-driven workflows using Inngest  
+- Asynchronous ticket processing  
+- Automated email notifications  
 
-⚙️ Setup & Installation
+---
 
-1️⃣ Clone the repository
-git clone <your-repo-url>
+## 🛠️ Tech Stack
+
+- **Backend**: Node.js, Express  
+- **Database**: MongoDB  
+- **Authentication**: JWT  
+- **AI Integration**: Google Gemini API  
+- **Background Jobs**: Inngest  
+- **Email**: Nodemailer (Mailtrap)  
+- **Dev Tools**: Nodemon  
+
+---
+
+## 📦 Prerequisites
+
+- Node.js (v14 or higher)  
+- MongoDB  
+- Google Gemini API key  
+- Mailtrap account  
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/smartdesk-ai.git
 cd smartdesk-ai
 
-2️⃣ Install dependencies
+2. Install dependencies
 npm install
 
-3️⃣ Environment Setup
+3. Environment Setup
+
 Create a .env file:
 
-# Database
 MONGO_URI=your_mongodb_uri
-
-# Authentication
 JWT_SECRET=your_jwt_secret
-
-# Email (Mailtrap)
 MAILTRAP_SMTP_HOST=your_host
 MAILTRAP_SMTP_PORT=your_port
 MAILTRAP_SMTP_USER=your_user
 MAILTRAP_SMTP_PASS=your_password
-
-# AI
 GEMINI_API_KEY=your_api_key
-
-# App
 APP_URL=http://localhost:3000
 
 ▶️ Running the Application
-Start the backend server
+Start backend server
 npm run dev
 Start Inngest dev server
 npm run inngest-dev
 
-Inngest runs at:
-👉 http://localhost:8288
+Inngest runs at: http://localhost:8288
 
 📡 API Endpoints
 
-🔐 Authentication
+Authentication
 POST /api/auth/signup → Register user
 POST /api/auth/login → Login & get JWT
 
-🎫 Tickets
+Tickets
 POST /api/tickets → Create ticket
 GET /api/tickets → Get user tickets
 GET /api/tickets/:id → Get ticket details
 
-🛠 Admin
+Admin
 GET /api/auth/users → Get all users
 POST /api/auth/update-user → Update roles & skills
 
 🔄 Ticket Workflow
-1. Ticket Creation
-   
-User submits a ticket → Stored in database
+User submits a ticket
+AI processes the ticket (skills, priority, notes)
+System assigns moderator
+Email notification is sent
 
-3. AI Processing
-   
-Triggered via Inngest:
-Extracts required skills
-Assigns priority
-Determines ticket type
-Generates helpful notes
-
-3. Assignment
-
-Matches moderators based on skills
-Uses regex-based matching
-Falls back to admin
-
-5. Notification
-
-Email sent to assigned moderator
-Includes ticket details + AI insights
+📚 Dependencies
+express
+mongoose
+jsonwebtoken
+bcrypt
+dotenv
+cors
+inngest
+nodemailer
